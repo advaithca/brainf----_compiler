@@ -46,4 +46,4 @@ if st.button("Run with example"):
     with st.spinner('Compiling..'):
         st.success('Output : ')
         bf = BrainFuck(200)
-        st.text(''.join(bf.compile(code)))
+        st.write(''.join(bf.compile(code)))
