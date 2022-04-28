@@ -35,11 +35,11 @@ code = st.text_area(label='Input code',height=300)
 if st.button('Compile'):
     if code:
         with st.spinner('Compiling..'):
+            x = []
             st.success('Output : ')
             bf = BrainFuck(200)
             x = bf.compile(code)
             st.text(''.join(x))
-            x = ''
     else:
         st.error("Enter something before compiling, pls.")
 
@@ -48,8 +48,8 @@ if st.button("Run with an example"):
     st.write("Running with: ")
     st.code(code)
     with st.spinner('Compiling..'):
+        x = []
         st.success('Output : ')
         bf = BrainFuck(200)
         x = bf.compile(code)
         st.text(''.join(x))
-        x = ''
