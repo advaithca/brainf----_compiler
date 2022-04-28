@@ -33,7 +33,7 @@ User input for the program isn't supported yet :disappointed:
 code = st.text_area(label='Input code',height=300)
 examples = {
     'Hello World' : '++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.',
-    'Sierpenski Triangle' : '''.++++++++[>+>++++<<-]>++>>+<[-[>>+<<-]+>>]>+[
+    'Sierpenski Triangle' : '''++++++++[>+>++++<<-]>++>>+<[-[>>+<<-]+>>]>+[
                                 -<<<[
                                     ->[+[-]+>++>>>-<<]<[<]>>++++++[<<+++++>>-]+<<++.[-]<<
                                 ]>.>+[>>]>+
