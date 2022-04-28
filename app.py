@@ -39,6 +39,7 @@ if st.button('Compile'):
             bf = BrainFuck(200)
             x = bf.compile(code)
             st.text(''.join(x))
+            x = ''
     else:
         st.error("Enter something before compiling, pls.")
 
@@ -51,3 +52,4 @@ if st.button("Run with an example"):
         bf = BrainFuck(200)
         x = bf.compile(code)
         st.text(''.join(x))
+        x = ''
