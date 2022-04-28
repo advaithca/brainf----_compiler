@@ -40,8 +40,13 @@ with plh.container():
             with st.spinner('Compiling..'):
                 st.success('Output : ')
                 bf = BrainFuck(200)
-                x = bf.compile(code)
-                st.text(''.join(x))
+                try:
+                    x = bf.compile(code)
+                except:
+                    st.error("An Error has occured.")
+                else:
+                    st.success("Successfully compiled!!")
+                    st.text(''.join(x))
         else:
             st.error("Enter something before compiling, pls.")
 
@@ -51,9 +56,10 @@ with plh.container():
         st.code(code)
         with st.spinner('Compiling..'):
             x = []
-            st.success('Output : ')
+            st.success('Compiled Successfully..')
             bf = BrainFuck(200)
             x = bf.compile(code)
             st.text(''.join(x))
+
 if st.button('Clear'):
     plh.empty()
