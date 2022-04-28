@@ -1,3 +1,5 @@
+op = []
+
 class BrainFuck:
     '''
     Class implementing a brainfuck compiler.
@@ -49,7 +51,7 @@ class BrainFuck:
                 self.memory[self.ptr] = self.memory[self.ptr] - 1 if self.memory[self.ptr] > 0 else 255
                 
             elif code[i] == '.':    
-                print(chr(self.memory[self.ptr]),end='')
+                op.append(chr(self.memory[self.ptr]))
 
             elif code[i] == ',':
                 self.memory[self.ptr] = (input()[0])
@@ -62,3 +64,4 @@ class BrainFuck:
                 if self.memory[self.ptr] != 0:
                     i = self.bracePos[i]
             i += 1
+        return op
