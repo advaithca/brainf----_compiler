@@ -64,4 +64,6 @@ class BrainFuck:
                 if self.memory[self.ptr] != 0:
                     i = self.bracePos[i]
             i += 1
-        return op
+        retVal = ''.join(op)
+        op.clear()
+        return retVal

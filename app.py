@@ -23,7 +23,7 @@ with st.sidebar:
         | [ | Skip to corresponding ']' if value at pointer is 0 |
         | ] | Skip to corresponding '[' if value at pointer isn't 0 |
 
-        Everything else is considered as a comment.
+        Everything else is considered a comment.
         ''')
 st.write('''You can input your BrainF--ck code in the text box and get the output, It's as simple as that.
 
@@ -31,35 +31,40 @@ User input for the program isn't supported yet :disappointed:
 ''')
 
 code = st.text_area(label='Input code',height=300)
-plh = st.empty()
+examples = {
+    'Hello World' : '++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.',
+    'Sierpenski Triangle' : '''.++++++++[>+>++++<<-]>++>>+<[-[>>+<<-]+>>]>+[
+                                -<<<[
+                                    ->[+[-]+>++>>>-<<]<[<]>>++++++[<<+++++>>-]+<<++.[-]<<
+                                ]>.>+[>>]>+
+                            ]'''
+}
 A = st.button('Compile')
-B = st.button("Run with an example")
-with plh.container():
-    if A:
-        if code:
-            with st.spinner('Compiling..'):
-                st.success('Output : ')
-                bf = BrainFuck(200)
-                try:
-                    x = bf.compile(code)
-                except:
-                    st.error("An Error has occured.")
-                else:
-                    st.success("Successfully compiled!!")
-                    st.text(''.join(x))
-        else:
-            st.error("Enter something before compiling, pls.")
+B = st.selectbox('Run with an example', ('Hello World','Sierpenski Triangle'))
+C = st.button('Go')
 
-    if B:
-        code = '++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.'
-        st.write("Running with: ")
-        st.code(code)
+if A:
+    if code:
         with st.spinner('Compiling..'):
-            x = []
-            st.success('Compiled Successfully..')
             bf = BrainFuck(200)
-            x = bf.compile(code)
-            st.text(''.join(x))
+            try:
+                x = bf.compile(code)
+            except:
+                st.error("An Error has occured.")
+            else:
+                st.success("Successfully compiled!!")
+                st.write('### Output')
+                st.text(x)
+    else:
+        st.error("Enter something before compiling, please.")
 
-if st.button('Clear'):
-    plh.empty()
+if C:
+    code = examples[B]
+    st.write("Running ", B)
+    st.code(code)
+    with st.spinner('Compiling..'):
+        st.success('Compiled Successfully..')
+        st.write('#### Output')
+        bf = BrainFuck(200)
+        x = bf.compile(code)
+        st.text(x)
