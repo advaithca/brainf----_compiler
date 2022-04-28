@@ -41,6 +41,8 @@ if st.button('Compile'):
 
 if st.button("Run with example"):
     code = '++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.'
+    st.write("Running with: ")
+    st.code(code)
     with st.spinner('Compiling..'):
         st.success('Output : ')
         bf = BrainFuck(200)
