@@ -22,6 +22,8 @@ with st.sidebar:
         | - | Decrement value at pointer by 1 |
         | [ | Skip to corresponding ']' if value at pointer is 0 |
         | ] | Skip to corresponding '[' if value at pointer isn't 0 |
+
+        Everything else is considered as a comment.
         ''')
 st.write('''You can input your BrainF--ck code in the text box and get the output, It's as simple as that.
 
@@ -39,7 +41,7 @@ if st.button('Compile'):
     else:
         st.error("Enter something before compiling, pls.")
 
-if st.button("Run with example"):
+if st.button("Run with an example"):
     code = '++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.'
     st.write("Running with: ")
     st.code(code)
