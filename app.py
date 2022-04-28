@@ -32,9 +32,10 @@ User input for the program isn't supported yet :disappointed:
 
 code = st.text_area(label='Input code',height=300)
 plh = st.empty()
-
+A = st.button('Compile')
+B = st.button("Run with an example")
 with plh.container():
-    if st.button('Compile'):
+    if A:
         if code:
             with st.spinner('Compiling..'):
                 st.success('Output : ')
@@ -44,7 +45,7 @@ with plh.container():
         else:
             st.error("Enter something before compiling, pls.")
 
-    if st.button("Run with an example"):
+    if B:
         code = '++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.'
         st.write("Running with: ")
         st.code(code)
