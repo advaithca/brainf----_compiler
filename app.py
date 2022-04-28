@@ -31,19 +31,23 @@ User input for the program isn't supported yet :disappointed:
 ''')
 
 code = st.text_area(label='Input code',height=300)
+plh = st.empty()
 
 if st.button('Compile'):
     if code:
+        plh.empty()
         with st.spinner('Compiling..'):
             x = []
             st.success('Output : ')
             bf = BrainFuck(200)
             x = bf.compile(code)
-            st.text(''.join(x))
+            with plh.container():
+                st.text(''.join(x))
     else:
         st.error("Enter something before compiling, pls.")
 
 if st.button("Run with an example"):
+    plh.empty()
     code = '++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.'
     st.write("Running with: ")
     st.code(code)
@@ -52,4 +56,5 @@ if st.button("Run with an example"):
         st.success('Output : ')
         bf = BrainFuck(200)
         x = bf.compile(code)
-        st.text(''.join(x))
+        with plh.container():
+            st.text(''.join(x))
