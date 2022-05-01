@@ -3,14 +3,14 @@ import streamlit as st
 from bf import BrainFuck
 
 st.write('''
-# Just another BrainF--ck compiler:joy:
+# Just another BrainF-ck compiler:joy:
 ****
 ''')
 with st.sidebar:
-    st.write('''### *BrainF--ck*''')
+    st.write('''### *BrainF-ck*''')
     st.image('bf.png')
     st.write('''****''')
-    st.write('''*[BrainF--ck](https://en.wikipedia.org/wiki/Brainfuck) is one of the most famous esoteric programming languages 
+    st.write('''*[BrainF-ck](https://en.wikipedia.org/wiki/Brainfuck) is one of the most famous esoteric programming languages 
                 and it was created by Urban Müller.*''')
     with st.expander("Syntax"):
         st.write('''
